@@ -1,0 +1,131 @@
+
+
+@media all and (max-width: 600px) {
+    #container {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+
+    #translate {
+        grid-column: 1;
+    }
+}
+
+@media all and (min-width: 600px) {
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    #translate {
+        grid-column: span 2;
+    }
+    
+}
+
+* {
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    overflow-y: scroll;
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.option-box{
+    margin: 1rem 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    height: 2rem;
+    width: 90%;
+    border: solid 2px;
+    border-radius: 1rem;
+    margin: 0 auto;
+    background-color: lavender;
+}
+
+.delete-button {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.extra-language-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select {
+    height: 2rem;
+    width: 80%;
+    border: solid 2px;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    background-color:lavenderblush;
+}
+
+#extra-languages{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    display: flex;
+}
+
+#num-of-lang{
+    border-radius: 0.5rem;
+    width: 80%;
+    text-align: center;
+}
+textarea {
+    height: 10rem;
+    resize: none;
+    border-radius: 0.5rem;
+    background-color: snow;
+    border: solid 2px;
+    font-size: medium;
+}
+
+span {
+    font-size: 1rem;
+}
+
+span a{
+    color: slateblue;
+    text-decoration: underline;
+}
+
+input {
+    background-color: snow;
+    border: solid 2px;
+}
+
+#description {
+    width: 100%;
+    text-align: center;
+    font-size: small;
+
+}
+

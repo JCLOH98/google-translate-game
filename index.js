@@ -212,6 +212,9 @@ const formLanguages = () => {
             let option = document.createElement("option");
             option.setAttribute("value",code);
             option.innerText = language;
+            if (select.id === "output-language" && code==="zh-CN") {
+                option.setAttribute("selected","true")
+            }
             select.appendChild(option);
         }
         
@@ -312,7 +315,11 @@ const translate = async () => {
 
                 // GET translation result
                 const data = await response.json();
-                result_text = data[0][0][0];
+                // result_text = data[0][0][0];
+                //console.log(data[0])
+                for (let i=0; i<data[0].length; i++) {
+                    result_text += data[0][i][0];
+                }
                 
                 if (sl==="auto") {
                     extra_result.innerText += `${sl} (${data[2]}) -> ${random_name} (${tl}): ${result_text}\r\n`; 
@@ -345,6 +352,10 @@ const translate = async () => {
             // GET translation result
             const data = await response.json();
             result_text = data[0][0][0]; 
+            //console.log(data[0])
+            for (let i=0; i<data[0].length; i++) {
+                result_text += data[0][i][0];
+            }
             
             if (sl==="auto") {
                 extra_result.innerText += `${sl} (${data[2]}) -> ${language_text} (${tl}): ${result_text}\r\n`; 
@@ -381,6 +392,10 @@ const translate = async () => {
                 // GET translation result
                 const data = await response.json();
                 result_text = data[0][0][0]; 
+                //console.log(data[0])
+                for (let i=0; i<data[0].length; i++) {
+                    result_text += data[0][i][0];
+                }
                 
                 if (sl==="auto") {
                     extra_result.innerText += `${sl} (${data[2]}) -> ${language_text} (${tl}): ${result_text}\r\n`; 
@@ -411,7 +426,11 @@ const translate = async () => {
             // GET translation result
             const data = await response.json();
             result_text = data[0][0][0]; 
-            
+            //console.log(data[0])
+            for (let i=0; i<data[0].length; i++) {
+                result_text += data[0][i][0];
+            }
+        
             if (sl==="auto") {
                 extra_result.innerText += `${sl} (${data[2]}) -> ${language_text} (${tl}): ${result_text}\r\n`; 
             }

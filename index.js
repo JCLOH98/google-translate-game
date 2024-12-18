@@ -290,6 +290,7 @@ const translate = async () => {
     let tl = ""
     let q = input_text.value;
 
+    let result_text="";
     if (auto.checked) { //auto translation
 
         const names = Object.keys(languages);
@@ -302,7 +303,7 @@ const translate = async () => {
             
             tl = random_code;
             
-            let result_text="";
+            result_text="";
             url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${q}`;
             // console.log(url);
 
@@ -344,6 +345,7 @@ const translate = async () => {
         url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${q}`;
         // GET translation result
         try {
+            result_text="";
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -351,7 +353,7 @@ const translate = async () => {
 
             // GET translation result
             const data = await response.json();
-            result_text = data[0][0][0]; 
+            //result_text = data[0][0][0]; 
             //console.log(data[0])
             for (let i=0; i<data[0].length; i++) {
                 result_text += data[0][i][0];
@@ -369,7 +371,7 @@ const translate = async () => {
         }
     }
     else if (manual.checked){ //manual translation
-        let result_text="";
+        result_text="";
         let language_text = ""
 
         // loop the children of extra-languages
@@ -379,6 +381,7 @@ const translate = async () => {
             let language_code = elem.value;
             tl = language_code;
 
+            result_text="";
             url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${q}`;
             // console.log(url);
 
@@ -391,7 +394,7 @@ const translate = async () => {
 
                 // GET translation result
                 const data = await response.json();
-                result_text = data[0][0][0]; 
+                //result_text = data[0][0][0]; 
                 //console.log(data[0])
                 for (let i=0; i<data[0].length; i++) {
                     result_text += data[0][i][0];
@@ -415,6 +418,7 @@ const translate = async () => {
         // last iteration to tl
         language_text = target_language.options[target_language.selectedIndex].text;
         tl = target_language.value;
+        result_text="";
         url=`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${q}`;
         // GET translation result
         try {
@@ -425,7 +429,7 @@ const translate = async () => {
 
             // GET translation result
             const data = await response.json();
-            result_text = data[0][0][0]; 
+            //result_text = data[0][0][0]; 
             //console.log(data[0])
             for (let i=0; i<data[0].length; i++) {
                 result_text += data[0][i][0];

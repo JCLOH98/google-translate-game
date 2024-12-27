@@ -135,3 +135,16 @@ input {
 
 }
 
+#support-this-project {
+    background-color: lavender;
+    color: slateblue;
+    border: solid 1px;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    position: fixed;
+    font-size: small;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    text-decoration: none;
+}
+
